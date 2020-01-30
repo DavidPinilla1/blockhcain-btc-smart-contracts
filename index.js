@@ -15,3 +15,10 @@ fs.writeFileSync('regtest-key2.wif',keypair2.toSecret('regtest'));
 const m = 2;
 const n = 2;
 
+const publicKeys =[keypair1.publicKey,keypair2.publicKey]
+
+const multiSigScript =Script.fromMultisig(m, n, publicKeys);
+// console.log(multiSigScript)
+
+const address =multiSigScript.getAddress().toBase58();
+console.log(address);
