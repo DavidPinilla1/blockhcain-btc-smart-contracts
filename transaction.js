@@ -3,10 +3,7 @@ const assert = require('assert');
 const bcoin = require('bcoin');
 
 const KeyRing =bcoin.wallet.WalletKey;
-const Script= bcoin.Script;
-const MTX = bcoin.MTX;
-const Amount = bcoin.Amount;
-const Coin = bcoin.Coin;
+const {Script,MTX,Amount,Coin} = bcoin.MTX;
 
 const privateKeys1 = fs.readFileSync('./regtest-key1.wif').toString();
 const privateKeys2 = fs.readFileSync('./regtest-key1.wif').toString();
