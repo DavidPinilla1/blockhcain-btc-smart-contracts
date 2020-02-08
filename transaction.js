@@ -32,3 +32,24 @@ const coin =Coin.fromJSON({
     coinbase:false,
     script:script.toJSON(),
 })
+const tx =new MTX();
+
+tx.addOutput({
+    address: 'RF1PJ1VkHG6H9dwoE2k19a5aigWcWr6Lsu',
+    value:Amount.fromBTC('50').toValue()
+})
+
+const changeAddress =script.getAddress().toBase58('regtest');
+tx.addOutput({
+    address: changeAddress,
+    value:Amount.fromBTC('49.99').toValue()
+
+})
+tx.addCoin(coin);
+
+keyPair1.script =redeem
+keyPair2.script =redeem
+
+tx.scriptInput(0,coin,keyPair1);
+tx.signInput(0,coin,keyPair1);
+tx.signInput(0,coin,keyPair2);
